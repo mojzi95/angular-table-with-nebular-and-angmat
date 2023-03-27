@@ -1,0 +1,29 @@
+table {
+  width: 100%;
+}
+
+th.mat-header-cell, mat-paginator {
+  background-color: #292956;
+  text-align: center;
+  padding: 0px 10px;
+  color: white;
+
+}
+tr {
+  background-color: #33336b;
+  text-align: center;
+
+}
+td, th {
+  color: white;
+  border: 1px solid #202044;
+
+}
+
+mat-spinner {
+  margin: 0 auto;
+}
+::ng-deep .mat-select-value {
+  color: white !important;
+}
+

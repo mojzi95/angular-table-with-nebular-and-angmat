@@ -1,0 +1,143 @@
+<nb-layout>
+  <nb-layout-column>
+    <h1>Fetch Data from API</h1>
+
+    <div *ngIf="isLoading$ | async; else showTable" class="spinner-wrapper">
+      <mat-spinner></mat-spinner>
+    </div>
+
+    <ng-template #showTable>
+      <table mat-table [dataSource]="dataSource" matSort (matSortChange)="announceSortChange($event)" matSortActive="id" matSortDirection="asc" matSortDisableClear
+        class="mat-elevation-z8" >
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">
+            ID
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by symbol">
+            Symbol
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nameid">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by nameid">
+            NameID
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.nameid}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="rank">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by rank">
+            Rank
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.rank}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price_usd">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="Sort by price_usd">
+            Price in USD
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.price_usd}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="percent_change_24h">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="percent_change_24h">
+            Percent Change in 24H
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.percent_change_24h}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="percent_change_1h">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="percent_change_1h">
+            Percent Change in 1H
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.percent_change_1h}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="percent_change_7d">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="percent_change_7d">
+            Percent Change in 7D
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.percent_change_7d}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="price_btc">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="price_btc">
+            Price in BTC
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.price_btc}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="market_cap_usd">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="market_cap_usd">
+            Market Cap USD
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.market_cap_usd}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume24">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="volume24">
+            Volume24
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.volume24}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="volume24a">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="volume24a">
+            Volume 24A
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.volume24a}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="csupply">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="csupply">
+            Csupply
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.csupply}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="tsupply">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="tsupply">
+            Tsupply
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.tsupply}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="msupply">
+          <th mat-header-cell *matHeaderCellDef sortActionDescription="msupply">
+            Msupply
+          </th>
+          <td mat-cell *matCellDef="let element"> {{element.msupply}} </td>
+        </ng-container>
+
+
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+      </table>
+
+
+      <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page">
+    </mat-paginator>
+
+
+    </ng-template>
+
+
+  </nb-layout-column>
+</nb-layout>
